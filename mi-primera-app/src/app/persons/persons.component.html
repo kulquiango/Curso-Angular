@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Listado de Personas</h1>
+      <button
+        class="btn btn-primary"
+        [disabled]="disable"
+        (click)="AgregarPersona()"
+      >
+        Agregar Persona
+      </button>
+      <p *ngIf="isActive; else caseElse1">
+        {{ mensaje }} con el titulo de {{ titulo }}
+      </p>
+    
+      <!-- else if en angular -->
+      <ng-template #caseElse1>
+        <p>  {{ mensaje }} </p></ng-template
+      >
+
+      <app-persona></app-persona>
+
+      <label>Titulo Persona: </label>
+      <!-- evento con funsion -->
+      <!-- <input
+        type="text"
+        class="form-control"
+        (input)="modificarTitulo($event)"
+      /> -->
+      <input type="text" class="form-control" [(ngModel)]="titulo" />
+      <span>{{ titulo }}</span>
+    </div>
+  </div>
+</div>
