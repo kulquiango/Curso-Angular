@@ -1,0 +1,10 @@
+.wrapper {
+  margin-top: 10px;
+}
+
+.wrapper > label {
+  margin-bottom: 10px;
+}
+.wrapperButton {
+  margin: 1rem;
+}

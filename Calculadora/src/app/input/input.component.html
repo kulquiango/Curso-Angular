@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="wrapper">
+        <label>Operador A</label>
+        <input
+          [(ngModel)]="operadorA"
+          type="number"
+          class="form-control"
+          placeholder="Escriba Operador A"
+        />
+      </div>
+
+      <div class="wrapper">
+        <label>Operador B</label>
+        <input
+          [(ngModel)]="operadorB"
+          type="number"
+          class="form-control"
+          placeholder="Escriba Operador B"
+        />
+      </div>
+      <div class="wrapperButton">
+        <button class="btn btn-primary" (click)="sumar()">sumar</button>
+        <p>Resultado: {{ resultado }}</p>
+      </div>
+    </div>
+  </div>
+</div>
