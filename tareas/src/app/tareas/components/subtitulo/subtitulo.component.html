@@ -1,0 +1,22 @@
+<h2 class="subtitle">Listado de Tareas</h2>
+<div
+  id="NoTareasId"
+  class="notification is-danger"
+  *ngIf="!numeroTareas; else danger"
+>
+  <button class="delete"></button>
+  No hay tareas en la lista
+</div>
+
+<ng-template #danger>
+  <div class="notification is-link" id="tareasId">
+    <button class="delete"></button>
+    Numero de Tareas: {{ numeroTareas }}
+  </div>
+</ng-template>
+
+<ul>
+  <li *ngFor="let tarea of tareas">
+    {{ tarea.completada ? tarea.tarea : "" }}
+  </li>
+</ul>
