@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="col">
+    <h3>{{ title }}</h3>
+  </div>
+  <hr />
+  <form class="row" (ngSubmit)="agregarPersona()">
+    <div class="col-auto">
+      <label for="nombre" class="visually-hidden">Nombre</label>
+      <input
+        type="text"
+        name="nombre"
+        placeholder="Nombre"
+        id="nombre"
+        class="form-control"
+        [(ngModel)]="nombreInput"
+      />
+    </div>
+    <div class="col-auto">
+      <label for="apellido" class="visually-hidden">Apellido</label>
+      <input
+        type="text"
+        name="apellido"
+        placeholder="Apellido"
+        id="apellido"
+        class="form-control"
+        [(ngModel)]="apellidoInput"
+      />
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-primary">Agregar</button>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+  <hr />
+  <div class="row">
+    <div class="column">
+      <div *ngFor="let persona of personas; let i = index">
+        {{ i + 1 }}. {{ persona.nombre }} {{ persona.apellidos }}
+      </div>
+    </div>
+  </div>
+</div>
