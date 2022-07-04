@@ -1,0 +1,13 @@
+<ol>
+    <li *ngFor="let fruta of frutas |slice:3">
+        {{ fruta}}
+    </li>
+
+    <p>Nuevo arreglo</p>
+    <!-- slice:3 inicio :5 fin -->
+    <li *ngFor="let fruta of frutas |slice:3:5">
+        {{ fruta}}
+    </li>
+</ol>
+<p>letrasOriginal: {{letras}}</p>
+<p>letrasSlice: {{letras|slice:2}}</p>
