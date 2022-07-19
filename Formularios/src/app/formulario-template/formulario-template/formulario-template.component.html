@@ -1,8 +1,11 @@
-<app-alert *ngIf="miFormulario.invalid && miFormulario.touched"></app-alert>
+<app-alert
+  *ngIf="(miFormulario.invalid && miFormulario.touched) || !isValid"
+></app-alert>
 <form
   autocomplete="off"
   class="form-group container"
   (ngSubmit)="agregar()"
+  (keydown.enter)="$event.preventDefault()"
   #miFormulario="ngForm"
 >
   <div class="mt-2">
@@ -13,7 +16,7 @@
       id="proyecto"
       placeholder="Nombre del Proyecto"
       required
-      ngModel
+      [(ngModel)]="initialState.proyecto"
       minlength="3"
       maxlength="15"
       name="proyecto"
@@ -28,7 +31,7 @@
       type="number"
       id="horas"
       placeholder="Horas para completar"
-      ngModel
+      [(ngModel)]="initialState.horas"
       required
       min="0"
       max="24"
@@ -39,34 +42,67 @@
   <div class="mt-2">
     <div class="row">
       <label for="tecnologia">Tecnologia</label>
-      <div class="col-12 col-md-8">
+      <div class="col-8">
         <input
           class="form-control"
           type="text"
           id="tecnologia"
-          ngModel
+          [(ngModel)]="initialState.tecnologias"
           placeholder="Nombre de la tecnologia"
           name="tecnologia"
+          minlength="3"
+          maxlength="15"
         />
       </div>
-      <div class="col-12 col-md-4">
-        <button class="btn btn-success">Agregar</button>
+      <div class="col-4">
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="agregarTecnologia()"
+        >
+          Agregar
+        </button>
       </div>
     </div>
   </div>
 
+  <div class="col-12 my2">
+    <ul class="list-group">
+      <li *ngFor="let tecnologia of tecnologias" class="list-group-item">
+        {{ tecnologia }}
+      </li>
+    </ul>
+  </div>
   <div>
-    <button class="btn btn-warning mt-2 w-100" type="submit">
+    <button type="submit " class="btn btn-warning mt-2 w-100">
       Agregar Proyecto
     </button>
   </div>
 </form>
 
-<pre>
+<!-- <pre>
 
-    Proyecto: {{ miFormulario.value | json }}
+    Proyecto: {{ initialState | json }}
     Valido: {{ miFormulario.valid | json }}
     Error: 
       proyecto:{{ miFormulario.controls["proyecto"]?.errors | json }}
       Horas: {{ miFormulario.controls["horas"]?.errors | json }}
-</pre>
+</pre> -->
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Proyecto</th>
+        <th scope="col">Horas</th>
+        <th scope="col">Tecnologias</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proyecto of proyectos">
+        <th scope="row">{{ proyecto.proyecto }}</th>
+        <td>{{ proyecto.horas }}</td>
+        <td>{{ proyecto.tecnologias }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
