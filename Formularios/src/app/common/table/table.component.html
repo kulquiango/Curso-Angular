@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Proyecto</th>
+        <th scope="col">Horas</th>
+        <th scope="col">Tecnologias</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let proyecto of proyectos">
+        <th scope="row">{{ proyecto.proyecto }}</th>
+        <td>{{ proyecto.horas }}</td>
+        <td>{{ proyecto.tecnologias }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
