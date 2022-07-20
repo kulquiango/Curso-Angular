@@ -1,0 +1,63 @@
+<app-alert></app-alert>
+<pre>
+    {{ miFormulario.invalid }}
+</pre>
+<form
+  autocomplete="off"
+  class="form-group container"
+  [formGroup]="miFormulario"
+>
+  <div class="mt-2">
+    <label for="proyectoR">Proyecto</label>
+    <input
+      class="form-control"
+      type="text"
+      id="proyectoR"
+      placeholder="Nombre del Proyecto"
+      formControlName="proyecto"
+    />
+  </div>
+
+  <div class="mt-2">
+    <label for="horasR">Horas</label>
+    <input
+      class="form-control"
+      type="number"
+      id="horasR"
+      formControlName="horas"
+      placeholder="Horas para completar"
+    />
+  </div>
+  <div class="mt-2">
+    <div class="row">
+      <label for="tecnologiar">Tecnologia</label>
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          id="tecnologiar"
+          formControlName="tecnologias"
+          placeholder="Nombre de la tecnologia"
+          name="tecnologia"
+        />
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-success">Agregar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 my2">
+    <ul class="list-group">
+      <li *ngFor="let tecnologia of []" class="list-group-item">
+        {{ tecnologia }}
+      </li>
+    </ul>
+  </div>
+  <div>
+    <button class="btn btn-warning mt-2 w-100" type="submit">
+      Agregar Proyecto
+    </button>
+  </div>
+</form>
+<app-table></app-table>
