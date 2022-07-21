@@ -1,4 +1,4 @@
-<app-alert></app-alert>
+<app-alert *ngIf="validar()"></app-alert>
 <pre>
     {{ miFormulario.invalid }}
 </pre>
@@ -6,6 +6,7 @@
   autocomplete="off"
   class="form-group container"
   [formGroup]="miFormulario"
+  (submit)="agregarProyecto()"
 >
   <div class="mt-2">
     <label for="proyectoR">Proyecto</label>
@@ -36,20 +37,26 @@
           class="form-control"
           type="text"
           id="tecnologiar"
-          formControlName="tecnologias"
+          [formControl]="tecnologia"
           placeholder="Nombre de la tecnologia"
           name="tecnologia"
         />
       </div>
       <div class="col-4">
-        <button type="button" class="btn btn-success">Agregar</button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="agregarTecnologia()"
+        >
+          Agregar
+        </button>
       </div>
     </div>
   </div>
 
   <div class="col-12 my2">
     <ul class="list-group">
-      <li *ngFor="let tecnologia of []" class="list-group-item">
+      <li *ngFor="let tecnologia of tecnologias.value" class="list-group-item">
         {{ tecnologia }}
       </li>
     </ul>
@@ -60,4 +67,4 @@
     </button>
   </div>
 </form>
-<app-table></app-table>
+<app-table [proyectos]="proyectos"></app-table>
