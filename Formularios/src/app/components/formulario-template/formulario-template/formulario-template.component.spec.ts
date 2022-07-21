@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { FormularioTemplateComponent } from './formulario-template.component';
 
@@ -8,9 +9,9 @@ describe('FormularioTemplateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormularioTemplateComponent ]
+      declarations: [FormularioTemplateComponent], imports: [FormsModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FormularioTemplateComponent);
     component = fixture.componentInstance;

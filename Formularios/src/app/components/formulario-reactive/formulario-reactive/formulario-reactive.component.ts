@@ -31,7 +31,7 @@ export class FormularioReactiveComponent implements OnInit {
       Validators.min(1),
       Validators.max(50)
     ]),
-    tecnologias: this.fb.array([]),
+    tecnologias: this.fb.array([], Validators.required),
   })
 
   tecnologia: FormControl = this.fb.control('', [
