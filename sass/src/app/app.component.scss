@@ -1,5 +1,24 @@
 @import "config";
 .btn {
   background-color: $primary;
-  color: $secundary;
+  color: $while;
+  &.btn-dark {
+    background-color: $dark;
+
+    &:hover {
+      // acalarar:lighten(color,porcentaje)
+      background-color: lighten($color: $dark, $amount: 8);
+      color: $while;
+    }
+
+    &:active {
+      background-color: darken($color: $dark, $amount: 5);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: aqua;
+    color: black;
+  }
 }
