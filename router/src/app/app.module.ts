@@ -11,7 +11,7 @@ import { SheredModule } from './shared/components/shered.module';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     SheredModule
   ],
