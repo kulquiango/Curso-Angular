@@ -5,9 +5,7 @@ const { PASSWORD_DATABASE } = process.env
 
 const connectDatabase = async () => {
 	try {
-		await mongoose.connect(
-			`mongodb+srv://kulquiango:${PASSWORD_DATABASE}@cluster0.l5ws8oj.mongodb.net/crud?retryWrites=true&w=majority`,
-		)
+		await mongoose.connect(process.env.BD_CONNECTION)
 		console.log('Connected to Database Success')
 	} catch (error) {
 		console.error('Connected to Database failed:', error)
