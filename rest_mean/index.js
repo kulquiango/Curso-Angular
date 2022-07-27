@@ -1,8 +1,13 @@
+//import external
 const express = require('express')
+
+//import KUG-proyecy
 const connectDatabase = require('./database/config')
 const authRouter = require('./routers/auth')
+//Variables de configuracion
 require('dotenv').config()
 
+//conection database
 connectDatabase()
 
 const app = express()

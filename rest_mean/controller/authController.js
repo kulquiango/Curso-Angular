@@ -1,3 +1,4 @@
+const bcryptjs = require('bcryptjs')
 const User = require('../models/user')
 
 const loginUser = (req, res) => {
@@ -18,11 +19,16 @@ const registerUser = async (req, res) => {
 		}
 
 		const newUser = new User({ email, password, username })
+
+		//encrypt password
+		const salt = bcryptjs.genSaltSync(12)
+		newUser.password = bcryptjs.hashSync(password, salt)
+
 		await newUser.save()
 		res.json({
 			ok: true,
+			id: newUser.id,
 			email,
-			password,
 			username,
 			messenger: 'Successful registration',
 		})
