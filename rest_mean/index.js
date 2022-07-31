@@ -3,7 +3,8 @@ const express = require('express')
 const cors = require('cors')
 //import KUG-proyecy
 const connectDatabase = require('./database/config')
-const authRouter = require('./routers/auth')
+const TaskRouter = require('./routers/Task')
+const AuthRouter = require('./routers/Auth')
 //Variables de configuracion
 require('dotenv').config()
 
@@ -13,9 +14,14 @@ connectDatabase()
 const app = express()
 app.use(express.json())
 app.use(cors())
-app.use('/auth', authRouter)
+
+app.use('/auth', AuthRouter)
+app.use('/task', TaskRouter)
+
 app.use('*', express.static(__dirname + '/public'))
 
 app.listen(process.env.PORT, () => {
-	console.log(`Application running in port ${process.env.PORT}`)
+	console.info(
+		`[INFO] Application running in port ${process.env.PORT}`,
+	)
 })
