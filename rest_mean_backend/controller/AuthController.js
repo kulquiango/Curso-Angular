@@ -12,7 +12,7 @@ const registerUser = async (req, res) => {
 		if (user) {
 			return res.status(501).json({
 				ok: false,
-				messenger: 'email already registered',
+				message: 'email already registered',
 			})
 		}
 
@@ -36,7 +36,7 @@ const registerUser = async (req, res) => {
 					ok: true,
 					id: newUser.id,
 					username,
-					messenger: 'Successful registration',
+					message: 'Successful registration',
 					token,
 				})
 			},
@@ -45,7 +45,7 @@ const registerUser = async (req, res) => {
 		console.error(error)
 		res.json({
 			ok: false,
-			messenger: 'Error registering',
+			message: 'Error registering',
 		})
 	}
 }
@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
 		if (!user) {
 			return res.status(401).json({
 				ok: false,
-				messenger: 'Invalid email or password',
+				message: 'Invalid email or password',
 			})
 		}
 
@@ -69,7 +69,7 @@ const loginUser = async (req, res) => {
 		if (!validPassword) {
 			return res.status(401).json({
 				ok: false,
-				messenger: 'Invalid email or password',
+				message: 'Invalid email or password',
 			})
 		}
 
@@ -86,7 +86,7 @@ const loginUser = async (req, res) => {
 					ok: true,
 					id: user.id,
 					username: user.username,
-					messenger: 'Successful Login',
+					message: 'Success Login',
 					token,
 				})
 			},
@@ -95,7 +95,7 @@ const loginUser = async (req, res) => {
 		console.error(error)
 		res.json({
 			ok: false,
-			messenger: 'Error registering',
+			message: 'Error registering',
 		})
 	}
 }
