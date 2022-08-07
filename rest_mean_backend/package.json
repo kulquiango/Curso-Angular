@@ -4,8 +4,8 @@
   "description": "Proyecto de MEAN STACK curso Udemy",
   "main": "index.js",
   "engines": {
-    "npm": ">=8.8.0",
-    "node": ">=16.15.0"
+    "npm": "8.8.0",
+    "node": "16.15.0"
   },
   "scripts": {
     "dev": "nodemon index.js",
