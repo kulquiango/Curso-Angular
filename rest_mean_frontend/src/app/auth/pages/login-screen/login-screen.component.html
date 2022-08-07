@@ -1,10 +1,12 @@
-<div class="row">
+<div class="row container">
   <app-form-reactive
     formName="Iniciar Sección"
+    classDiv="input-field col s12"
     textButton="Iniciar Sección"
     [formGroup]="miFormulario"
     [inputData]="inputData"
     routerLinkURL="/auth/register"
+    routerLinkName="Registrarte"
     urlNavigate="/task"
     action="login"
   ></app-form-reactive>

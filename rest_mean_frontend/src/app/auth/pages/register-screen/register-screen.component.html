@@ -1,9 +1,13 @@
-<div class="row">
+<div class="row container">
   <app-form-reactive
-    textButton="Registrarte"
     formName="Registrarte"
+    textButton="Registrarte"
+    classDiv="input-field col s12"
     [formGroup]="miFormulario"
     [inputData]="inputData"
+    routerLinkName="Iniciar Sección"
     routerLinkURL="/auth/login"
+    urlNavigate="/task"
+    action="register"
   ></app-form-reactive>
 </div>

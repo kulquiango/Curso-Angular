@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InputData } from '../../Interface/InputData';
+import { InputData } from '../../../shared/Interface/InputData';
 
 @Component({
   selector: 'app-register-screen',
@@ -9,7 +9,7 @@ import { InputData } from '../../Interface/InputData';
 })
 export class RegisterScreenComponent implements OnInit {
   miFormulario: FormGroup = this.fb.group({
-    username: ['', [Validators.required, Validators.nullValidator]],
+    username: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(6)]],

@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div class="container row">
+  <app-form-reactive
+    formName="Actualizar Tarea"
+    [formGroup]="miFormulario"
+    textButton="Actualizar"
+    action="updateTask"
+    classLabel="active"
+    classDiv="input-field col s12 active"
+    [inputData]="inputData"
+  ></app-form-reactive>
+</div>

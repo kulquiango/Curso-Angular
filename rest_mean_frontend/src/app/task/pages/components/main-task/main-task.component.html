@@ -1,1 +1,45 @@
-<p>main-task works!</p>
+<app-navbar></app-navbar>
+<div class="container">
+  <app-form-reactive
+    (newListTask)="updateListTask($event)"
+    [divTitleIsActive]="false"
+    [formGroup]="miFormulario"
+    classDiv="input-field col s6"
+    lengthDivTitle="col s6"
+    textButton="Crear Tarea"
+    action="createTask"
+    [inputData]="inputData"
+  ></app-form-reactive>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="w-80">{{ "Name" | uppercase }}</th>
+        <th class="w-20 center">{{ "Actualizar" | uppercase }}</th>
+        <th class="w-20 center">{{ "Eliminar" | uppercase }}</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let task of getTasks()">
+        <td>{{ task.name }}</td>
+        <td class="center">
+          <button
+            (click)="update(task)"
+            class="btn waves-effect waves-light green accent-4 p-3"
+          >
+            <mat-icon>edit_square</mat-icon>
+          </button>
+        </td>
+        <td class="center">
+          <button
+            (click)="delete(task._id)"
+            class="btn waves-effect waves-light red p-3"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
